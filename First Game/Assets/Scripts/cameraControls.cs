@@ -29,8 +29,16 @@ public class cameraControls : MonoBehaviour
         //Get Input
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensVer;
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensHor;
-        // Convert input to rotation float
-        xRotation += mouseY;
+        // Convert input to rotation float and give option for inverted controls
+        if(invertY)
+        {
+            xRotation += mouseY;
+        }
+        else
+        {
+            xRotation -= mouseY;
+        }
+
         // clamp camera to rotation
         xRotation = Mathf.Clamp(xRotation, lockVertMin, lockVertMax);
 
