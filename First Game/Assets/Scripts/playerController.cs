@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class playerController : MonoBehaviour
@@ -10,6 +11,13 @@ public class playerController : MonoBehaviour
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
     [SerializeField] int jumpsMax;
+
+    // Instantiating using Raycasting
+    [SerializeField] float shootRate;
+    [SerializeField] int shootDist;
+    //this is what we use to instantiate the cube
+    [SerializeField] GameObject cube;
+    bool isShooting;
 
     int jumpedTimes;
     private Vector3 playerVelocity;
@@ -24,6 +32,12 @@ public class playerController : MonoBehaviour
     void Update()
     {
         movement();
+
+        // Instantiating using Raycasting
+        if(!isShooting && Input.GetButton("Shoot"))
+        {
+            StartCoroutine(shoot());
+        }
     }
 
     void movement()
@@ -48,5 +62,20 @@ public class playerController : MonoBehaviour
 
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    // Instantiating using Raycasting
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        //raycasting comes to play
+        RaycastHit hit;
+        if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            Instantiate(cube, hit.point, transform.rotation);
+        }
+        yield return new WaitForSeconds(shootRate);
+        isShooting= false;
     }
 }
