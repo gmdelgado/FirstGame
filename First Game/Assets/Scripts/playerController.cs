@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    //script
     [SerializeField] CharacterController controller;
     [SerializeField] float playerSpeed;
     [SerializeField] float jumpHeight;
