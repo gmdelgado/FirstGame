@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
+    [SerializeField] int HP;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,6 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void takeDamage(int amount)
     {
-
+        HP -= amount;
     }
 }
