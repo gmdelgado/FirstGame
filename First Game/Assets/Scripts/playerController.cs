@@ -74,7 +74,12 @@ public class playerController : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            //Instantiate(cube, hit.point, transform.rotation);
+            IDamage damageable = hit.collider.GetComponent<IDamage>();
+
+            if(damageable != null)
+            {
+                damageable.takeDamage(shootDamage);
+            }
         }
         yield return new WaitForSeconds(shootRate);
         isShooting= false;
