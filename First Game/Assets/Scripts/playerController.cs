@@ -5,17 +5,21 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    [Header("----- Components -----")]
     //script
     [SerializeField] CharacterController controller;
-    [SerializeField] float playerSpeed;
-    [SerializeField] float jumpHeight;
-    [SerializeField] float gravityValue;
-    [SerializeField] int jumpsMax;
 
+    [Header("----- Player Stats -----")]
+    [Range(3,8)][SerializeField] float playerSpeed;
+    [Range(8,25)][SerializeField] float jumpHeight;
+    [Range(10, 50)][SerializeField] float gravityValue;
+    [Range(1, 3)][SerializeField] int jumpsMax;
+
+    [Header("----- Gun Stats -----")]
     // Instantiating using Raycasting
-    [SerializeField] int shootDamage;
-    [SerializeField] float shootRate;
-    [SerializeField] int shootDist;
+    [Range(1, 10)][SerializeField] int shootDamage;
+    [Range(.1f, 5)][SerializeField] float shootRate;
+    [Range(1, 100)][SerializeField] int shootDist;
     //this is what we use to instantiate the cube
     //[SerializeField] GameObject cube;
     bool isShooting;
