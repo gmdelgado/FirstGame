@@ -13,10 +13,11 @@ public class playerController : MonoBehaviour
     [SerializeField] int jumpsMax;
 
     // Instantiating using Raycasting
+    [SerializeField] int shootDamage;
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
     //this is what we use to instantiate the cube
-    [SerializeField] GameObject cube;
+    //[SerializeField] GameObject cube;
     bool isShooting;
 
     int jumpedTimes;
@@ -73,7 +74,7 @@ public class playerController : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            Instantiate(cube, hit.point, transform.rotation);
+            //Instantiate(cube, hit.point, transform.rotation);
         }
         yield return new WaitForSeconds(shootRate);
         isShooting= false;
