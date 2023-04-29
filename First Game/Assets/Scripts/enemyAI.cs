@@ -15,11 +15,16 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void takeDamage(int amount)
     {
         HP -= amount;
+
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
