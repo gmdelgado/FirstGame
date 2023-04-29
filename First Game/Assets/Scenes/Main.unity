@@ -1293,9 +1293,9 @@ MonoBehaviour:
   jumpHeight: 12
   gravityValue: 25
   jumpsMax: 2
+  shootDamage: 1
   shootRate: 1
-  shootDist: 15
-  cube: {fileID: 5534193424818540428, guid: f46057a67241e944491e374dddfa57b9, type: 3}
+  shootDist: 20
 --- !u!143 &2004300255
 CharacterController:
   m_ObjectHideFlags: 0
