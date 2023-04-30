@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public static gameManager instance;
+
+    [Header("----- Player Stuff -----")]
+    public GameObject player;
+    public playerController playerScript;
+
+
+    // managers should only be used in managers to keep from getting null refernces for other objects
+    void Awake()
     {
-        
+        instance = this;
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<playerController>();
     }
 
     // Update is called once per frame
