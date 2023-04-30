@@ -6,6 +6,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
+
     //script
     [SerializeField] CharacterController controller;
 
