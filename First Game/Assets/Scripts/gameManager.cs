@@ -11,6 +11,10 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
 
+    [Header("----- UI Stuff -----")]
+    public GameObject pauseMenu;
+
+
 
     // managers should only be used in managers to keep from getting null refernces for other objects
     void Awake()
